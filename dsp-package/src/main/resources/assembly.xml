@@ -10,24 +10,27 @@
         <dependencySet>
             <unpack>false</unpack>
             <useProjectArtifact>false</useProjectArtifact>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
             <scope>runtime</scope>
             <excludes>
                 <!-- groupId:artifactId:type:classifier -->
-                <exclude>com.weiwan.dsp:dsp-plugin-*:jar:</exclude>
+                <exclude>com.weiwan.dsp:dsp-plugin*:jar:</exclude>
             </excludes>
             <outputDirectory>lib</outputDirectory>
         </dependencySet>
         <dependencySet>
             <unpack>true</unpack>
             <includes>
-                <include>com.weiwan:*:jar</include>
+                <include>com.weiwan.dsp:*:jar</include>
             </includes>
                 <unpackOptions>
                     <includes>
-                        <include>*.yaml</include>
-                        <include>*.yml</include>
-                        <include>*.properties</include>
-                        <include>*.xml</include>
+                        <include>dsp-core.yaml</include>
+                        <include>dsp-console.yaml</include>
+                        <include>flink-conf.yaml</include>
+                        <include>log4j.properties</include>
+                        <include>log4j-client.properties</include>
+                        <include>log4j-console.properties</include>
                     </includes>
                 </unpackOptions>
             <useProjectArtifact>false</useProjectArtifact>
@@ -36,8 +39,11 @@
         <dependencySet>
             <unpack>false</unpack>
             <includes>
-                <include>com.weiwan.dsp:dsp-plugin-*:jar:</include>
+                <include>com.weiwan.dsp:dsp-plugin*:jar:</include>
             </includes>
+            <excludes>
+                <exclude>com.weiwan.dsp:dsp-plugins*:jar:</exclude>
+            </excludes>
             <outputDirectory>plugin</outputDirectory>
         </dependencySet>
     </dependencySets>
@@ -53,7 +59,7 @@
             <outputDirectory>doc</outputDirectory>
         </fileSet>
             <fileSet> <!-- 创建一个空的扩展依赖文件夹,暂时未使用,TODO 需要每次提交任务时通过shipfiles文件上传到集群 -->
-                <outputDirectory>extlib</outputDirectory>
+                <outputDirectory>ext-lib</outputDirectory>
                 <excludes><exclude>**/*</exclude></excludes>
             </fileSet>
     </fileSets>

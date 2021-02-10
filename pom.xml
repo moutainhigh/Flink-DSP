@@ -19,7 +19,6 @@
         <module>dsp-api</module>
         <module>dsp-package</module>
         <module>dsp-extend</module>
-        <module>dsp-extend/dsp-plugins</module>
     </modules>
 
     <properties>

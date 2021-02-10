@@ -12,6 +12,7 @@
     <artifactId>dsp-extend</artifactId>
 
     <modules>
+        <module>dsp-plugins</module>
         <module>dsp-plugin-mysql</module>
     </modules>
 
