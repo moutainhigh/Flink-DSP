@@ -1,4 +1,50 @@
-{
-  "pluginName" : "dsp-plugin-mysql",
-  "pluginType" : "DB"
-}
+[
+  {
+    "pluginName": "dsp-plugin-mysql-reader",
+    "pluginType": "Reader",
+    "pluginClass": "com.weiwan.dsp.plugins.reader.MysqlReader",
+    "pluginInfo": {
+      "title": "MysqlWriter",
+      "description": "数据写出到Mysql",
+      "icon": ""
+    },
+    "pluginConfig": {
+      "conn": {
+        "url": "",
+        "username": "",
+        "password": ""
+      },
+      "table": [
+        "",
+        ""
+      ],
+      "schema": "",
+      "where": "",
+      "customSql": "",
+      "columns": [
+        {
+          "name": "col",
+          "type": "datetime",
+          "format": "yyyy-MM-dd hh:mm:ss",
+          "value": "value"
+        },
+        {
+          "name": "co2"
+        }
+      ],
+      "enablePolling": false,
+      "pollingSetting": {
+        "incrColumn": "",
+        "pollingInterval": 30000
+      },
+      "splitField": "",
+      "queryTimeOut": 30000,
+      "fetchSize": 20000
+    }
+  },
+  {
+    "pluginName": "dsp-plugin-mysql-writer",
+    "pluginType": "Writer",
+    "pluginClass": "com.weiwan.dsp.plugins.writer.MysqlWriter"
+  }
+]

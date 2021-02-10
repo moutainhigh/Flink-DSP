@@ -1,0 +1,52 @@
+{
+  "flow": {
+    "nodes": [
+      {
+        "nodeId": "R1",
+        "nodeName": "Mysql-T1表数据读取",
+        "pluginType" : "dsp-mysql-plugin-reader",
+        "dependencys": [
+
+        ]
+      },
+      {
+        "nodeId": "S1",
+        "nodeName": "",
+        "pluginType": "dsp-common-stream-split",
+        "dependencys": [
+          "R1"
+        ],
+        "pluginConfig": {
+          "splitNum": 3,
+          "splitOuts": [
+            {
+              "filterMode": "js",
+              "filterExpr": ""
+            },
+            {
+              "filterMode": "match",
+              "filterExpr": "a=123"
+            },
+            {
+              "filterMode": "regexp",
+              "filterExpr": "a=^adada&"
+            }
+          ]
+        }
+      },
+      {
+        "nodeId":"P1",
+        "nodeName": "数据处理1",
+        "pluginType": "dsp-plugin-common-process"
+      },
+      {
+        "nodeId": "U1",
+        "nodeName": "合并拆分数据流",
+        "nodeType": "union",
+        "dependencys": [
+          "S1.0","s1.1","s1.2"
+        ]
+      }
+    ]
+  }
+}
